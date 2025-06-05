@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace JobHunter.Models;
 
-[Table("Job")]
-public partial class Job
+[Keyless]
+public partial class vw_JobListing
 {
-    [Key]
+ [Key]
     public Guid JobID { get; set; }
 
     [Required]
@@ -24,7 +24,9 @@ public partial class Job
 
     public DateOnly? AppliedDate { get; set; }
 
-    public Guid? CompanyID { get; set; }
+    [StringLength(50)]
+    public string CompanyName { get; set; }
 
-    public Guid? ContactID { get; set; }
+    [StringLength(50)]
+    public string Location { get; set; }
 }

@@ -31,16 +31,8 @@
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[spGetContacts]",
-         "ObjectType": 1
-      },
-      {
-         "Name": "[dbo].[spGetEvents]",
-         "ObjectType": 1
-      },
-      {
-         "Name": "[dbo].[spGetJobs]",
-         "ObjectType": 1
+         "Name": "[dbo].[vw_JobListings]",
+         "ObjectType": 3
       }
    ],
    "UiHint": null,

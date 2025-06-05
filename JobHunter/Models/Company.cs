@@ -12,9 +12,11 @@ public partial class Company
     [Key]
     public Guid CompanyID { get; set; }
 
+    [Required]
     [StringLength(50)]
     public string Name { get; set; }
 
+    [Required]
     [StringLength(50)]
     public string Location { get; set; }
 }

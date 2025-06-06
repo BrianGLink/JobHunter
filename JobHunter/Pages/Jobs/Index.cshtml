@@ -1,5 +1,6 @@
 ﻿@page
-@model JobHunter.Pages.Jobs.JobsModel
+@model JobHunter.Pages.Jobs.IndexModel
+@using JobHunter.ViewModels
 
 @{
     ViewData["Title"] = "Jobs";
@@ -14,28 +15,28 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Job[0].PositionTitle)
+                @Html.DisplayNameFor(model => model.Jobs[0].PositionTitle)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Job[0].Requirements)
+                @Html.DisplayNameFor(model => model.Jobs[0].Requirements)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Job[0].PostedDate)
+                @Html.DisplayNameFor(model => model.Jobs[0].PostedDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Job[0].AppliedDate)
+                @Html.DisplayNameFor(model => model.Jobs[0].AppliedDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Job[0].CompanyID)
+                @Html.DisplayNameFor(model => model.Jobs[0].CompanyID)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Job[0].ContactID)
+                @Html.DisplayNameFor(model => model.Jobs[0].ContactID)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Job) {
+@foreach (var item in Model.Jobs) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.PositionTitle)
@@ -56,11 +57,14 @@
                 @Html.DisplayFor(modelItem => item.ContactID)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.JobID">Edit</a> |
+                    <!-- Trigger link -->
+                    <a href="#" class="btn btn-sm btn-secondary" onclick="loadEditModal(@item.JobID)">Edit</a>
+
                 <a asp-page="./Details" asp-route-id="@item.JobID">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.JobID">Delete</a>
             </td>
-        </tr>
+        </tr>    
+
 }
-    </tbody>
+        </tbody>
 </table>

@@ -1,0 +1,17 @@
+﻿@model JobHunter.ViewModels.EditJobViewModel
+
+<form method="post" asp-page-handler="Save">
+    <input type="hidden" asp-for="Job.JobID" />
+
+    <div class="form-group">
+        <label asp-for="Job.PositionTitle"></label>
+        <input asp-for="Job.PositionTitle" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Job.CompanyID"></label>
+        <select asp-for="Job.CompanyID" asp-items="Model.CompanyOptions" class="form-control"></select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

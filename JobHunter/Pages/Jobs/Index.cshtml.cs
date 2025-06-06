@@ -9,20 +9,20 @@ using JobHunter.Models;
 
 namespace JobHunter.Pages.Jobs
 {
-    public class JobsModel : PageModel
+    public class IndexModel : PageModel
     {
-        private readonly JobHunter.Models.JobberContext _context;
+        private readonly JobberContext _context;
 
-        public JobsModel(JobHunter.Models.JobberContext context)
+        public IndexModel(JobberContext context)
         {
             _context = context;
         }
 
-        public IList<Job> Job { get;set; } = default!;
+        public List<Job> Jobs { get; set; }
 
         public async Task OnGetAsync()
         {
-            Job = await _context.Jobs.ToListAsync();
+            Jobs = await _context.Jobs.ToListAsync();
         }
     }
 }

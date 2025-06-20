@@ -19,19 +19,23 @@ namespace JobHunter.Pages.Jobs
 
         public async Task OnGetAsync()
         {
+
+            Jobs = new List<Job>();
+
             //if (User.Identity.IsAuthenticated)
             //{
             //    Jobs = await _context.Jobs.ToListAsync();
             //}
             //else
             //{
-            Jobs = new List<Job>
-        {
-            new Job { PositionTitle = "Software Developer", PostedDate= DateOnly.FromDateTime( DateTime.Now.AddDays(-3)) },
-            new Job { PositionTitle = "QA Tester", PostedDate= DateOnly.FromDateTime( DateTime.Now.AddDays(-3)) },
-            new Job { PositionTitle = "UI/UX Designer", PostedDate = DateOnly.FromDateTime( DateTime.Now.AddDays(-3))  }
-        };
-        }
+            //    {
+                    Jobs.Add(new Job { PositionTitle = "Software Developer", PostedDate = DateOnly.FromDateTime(DateTime.Now.AddDays(-3)) });
+                    Jobs.Add(new Job { PositionTitle = "QA Tester", PostedDate = DateOnly.FromDateTime(DateTime.Now.AddDays(-3)) });
+                    Jobs.Add(new Job { PositionTitle = "UI/UX Designer", PostedDate = DateOnly.FromDateTime(DateTime.Now.AddDays(-3)) });
+                //}
+                //;
+            //}
 
+        }
     }
 }

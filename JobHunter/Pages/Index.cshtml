@@ -57,7 +57,9 @@
                     @Html.DisplayFor(modelItem => item.ContactID)
                 </td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.JobID">Edit</a> |
+                    <a asp-page="./Edit" asp-route-id="@item.JobID">Edit</a>
+                    
+                    
                     <a asp-page="./Details" asp-route-id="@item.JobID">Details</a> |
                     <a asp-page="./Delete" asp-route-id="@item.JobID">Delete</a>
                 </td>

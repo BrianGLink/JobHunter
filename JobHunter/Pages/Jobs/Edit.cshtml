@@ -10,7 +10,6 @@
 <h4>Job</h4>
 <hr />
 
-
 <div class="row">
     <div class="col-md-4">
         <form method="post">
@@ -25,7 +24,7 @@
             <div class="form-group">
                 <span class="text-danger">*</span>
                 <label asp-for="Job.Requirements" class="control-label"></label>
-                <input asp-for="Job.Requirements" class="form-control" />
+                <textarea asp-for="Job.Requirements" class="form-control" rows="6"></textarea>
                 <span asp-validation-for="Job.Requirements" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -38,15 +37,22 @@
                 <input asp-for="Job.AppliedDate" class="form-control" />
                 <span asp-validation-for="Job.AppliedDate" class="text-danger"></span>
             </div>
+            <!-- Company dropdown -->
             <div class="form-group">
-                <label asp-for="Job.CompanyID" class="control-label"></label>
-                <input asp-for="Job.CompanyID" class="form-control" />
-                <span asp-validation-for="Job.CompanyID" class="text-danger"></span>
+                <label>Company (select or type new):</label>
+                <select asp-for="Job.CompanyID" class="form-control" asp-items="Model.CompanyOptions">
+                    <option value="">-- Select Company --</option>
+                </select>
+                <input asp-for="NewCompanyName" placeholder="Or enter new company name" class="form-control mt-1" />
             </div>
+
+            <!-- Contact dropdown -->
             <div class="form-group">
-                <label asp-for="Job.ContactID" class="control-label"></label>
-                <input asp-for="Job.ContactID" class="form-control" />
-                <span asp-validation-for="Job.ContactID" class="text-danger"></span>
+                <label>Contact (select or type new):</label>
+                <select asp-for="Job.ContactID" class="form-control" asp-items="Model.ContactOptions">
+                    <option value="">-- Select Contact --</option>
+                </select>
+                <input asp-for="NewContactName" placeholder="Or enter new contact name" class="form-control mt-1" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

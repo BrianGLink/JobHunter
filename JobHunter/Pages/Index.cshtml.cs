@@ -13,25 +13,29 @@ namespace JobHunter.Pages.Jobs
     {
         private readonly JobHunter.Models.JobberContext _context;
 
-        public IndexModel(JobHunter.Models.JobberContext context) => _context = context;
+        public IndexModel(JobHunter.Models.JobberContext context)
+        {
+            _context = context;
+        }
 
         public IList<Job> Jobs { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
-            //if (User.Identity.IsAuthenticated)
-            //{
-            //    Jobs = await _context.Jobs.ToListAsync();
-            //}
-            //else
-            //{
-            Jobs = new List<Job>
-        {
-            new Job { PositionTitle = "Software Developer", PostedDate= DateOnly.FromDateTime( DateTime.Now.AddDays(-3)) },
-            new Job { PositionTitle = "QA Tester", PostedDate= DateOnly.FromDateTime( DateTime.Now.AddDays(-3)) },
-            new Job { PositionTitle = "UI/UX Designer", PostedDate = DateOnly.FromDateTime( DateTime.Now.AddDays(-3))  }
-        };
-        }
+            if (User.Identity.IsAuthenticated)
+            {
+                Jobs = await _context.Jobs.ToListAsync();
+            }
+            else
+            {
+                Jobs = new List<Job>
+                {
+                    new Job { PositionTitle = "Software Developer", PostedDate= DateOnly.FromDateTime( DateTime.Now.AddDays(-3)) },
+                    new Job { PositionTitle = "QA Tester", PostedDate= DateOnly.FromDateTime( DateTime.Now.AddDays(-3)) },
+                    new Job { PositionTitle = "UI/UX Designer", PostedDate = DateOnly.FromDateTime( DateTime.Now.AddDays(-3))  }
+                };
+            }
 
+        }
     }
 }

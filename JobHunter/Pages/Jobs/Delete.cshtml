@@ -1,0 +1,16 @@
+﻿@page
+@model JobHunter.Pages.Jobs.DeleteModel
+@{
+}
+<h2>Delete Job</h2>
+
+<div>
+    <p>Are you sure you want to delete this job?</p>
+    <strong>@Model.Job.PositionTitle</strong>
+</div>
+
+<form method="post">
+    <input type="hidden" asp-for="Job.JobID" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-page="./Index" class="btn btn-secondary">Cancel</a>
+</form>

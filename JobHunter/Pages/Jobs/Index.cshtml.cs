@@ -9,11 +9,11 @@ using JobHunter.Models;
 
 namespace JobHunter.Pages.Jobs
 {
-    public class IndexModel : PageModel
+    public class JobsModel : PageModel
     {
         private readonly JobberContext _context;
 
-        public IndexModel(JobberContext context)
+        public JobsModel(JobberContext context)
         {
             _context = context;
         }

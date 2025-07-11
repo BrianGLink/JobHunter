@@ -9,7 +9,6 @@ namespace JobHunter.Models;
 [Keyless]
 public partial class vw_JobListing
 {
- [Key]
     public Guid JobID { get; set; }
 
     [Required]

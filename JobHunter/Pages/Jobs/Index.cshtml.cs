@@ -22,7 +22,10 @@ namespace JobHunter.Pages.Jobs
 
         public async Task OnGetAsync()
         {
-            Jobs = await _context.Jobs.ToListAsync();
+            Jobs = await _context.Jobs
+                .Include(j => j.Company)
+                .Include(j => j.Contact)
+                .ToListAsync();
         }
     }
 }

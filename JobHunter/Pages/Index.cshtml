@@ -51,10 +51,10 @@
                     @Html.DisplayFor(modelItem => item.AppliedDate)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CompanyID)
+                    @Html.DisplayFor(modelItem => item.Company.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ContactID)
+                    @Html.DisplayFor(modelItem => item.Contact.Name)
                 </td>
                 <td>
                     <a asp-page="./Jobs/Edit" asp-route-id="@item.JobID">Edit</a> |

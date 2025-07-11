@@ -25,8 +25,10 @@ public partial class Job
     public DateOnly? AppliedDate { get; set; }
 
     public Guid? CompanyID { get; set; }
-    public Company Company { get; set; }    
+
+    public Company Company { get; set; }
+
+    public Contact Contact { get; set; }
 
     public Guid? ContactID { get; set; }
-    public Contact Contact { get; set; }
 }

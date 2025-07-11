@@ -66,6 +66,11 @@ namespace JobHunter.Pages.Jobs
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
+            if (Job == null)
+            {
+                throw new Exception("Job is null on post");
+            }
+
             // Handle Company
             if (!string.IsNullOrWhiteSpace(NewCompanyName))
             {
@@ -127,7 +132,7 @@ namespace JobHunter.Pages.Jobs
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToPage("./Index");
+            return RedirectToPage("../Index");
         }
 
     }

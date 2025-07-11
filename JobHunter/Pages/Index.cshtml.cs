@@ -22,19 +22,14 @@ namespace JobHunter.Pages.Jobs
 
         public async Task OnGetAsync()
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                Jobs = await _context.Jobs.ToListAsync();
-            }
-            else
-            {
-                Jobs = new List<Job>
+            Jobs = User.Identity.IsAuthenticated
+                ? await _context.Jobs.ToListAsync()
+                : (IList<Job>)new List<Job>
                 {
                     new Job { PositionTitle = "Software Developer", PostedDate= DateOnly.FromDateTime( DateTime.Now.AddDays(-3)) },
                     new Job { PositionTitle = "QA Tester", PostedDate= DateOnly.FromDateTime( DateTime.Now.AddDays(-3)) },
                     new Job { PositionTitle = "UI/UX Designer", PostedDate = DateOnly.FromDateTime( DateTime.Now.AddDays(-3))  }
                 };
-            }
 
         }
     }

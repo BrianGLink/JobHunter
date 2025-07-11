@@ -4,6 +4,8 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.0/dist/css/tom-select.bootstrap5.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.0/dist/js/tom-select.complete.min.js"></script>
 
 <h1>Edit</h1>
 
@@ -40,19 +42,23 @@
             <!-- Company dropdown -->
             <div class="form-group">
                 <label>Company (select or type new):</label>
-                <select asp-for="Job.CompanyID" class="form-control" asp-items="Model.CompanyOptions">
-                    <option value="">-- Select Company --</option>
+                <select id="company-select" name="NewCompanyName" class="form-select">
+                    @foreach (var item in Model.CompanyOptions)
+                    {
+                        <option value="@item.Text">@item.Text</option>
+                    }
                 </select>
-                <input asp-for="NewCompanyName" placeholder="Or enter new company name" class="form-control mt-1" />
             </div>
 
             <!-- Contact dropdown -->
             <div class="form-group">
                 <label>Contact (select or type new):</label>
-                <select asp-for="Job.ContactID" class="form-control" asp-items="Model.ContactOptions">
-                    <option value="">-- Select Contact --</option>
+                <select id="contact-select" name="NewContactName" class="form-select">
+                    @foreach (var item in Model.ContactOptions)
+                    {
+                        <option value="@item.Text">@item.Text</option>
+                    }
                 </select>
-                <input asp-for="NewContactName" placeholder="Or enter new contact name" class="form-control mt-1" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
@@ -66,5 +72,22 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        new TomSelect('#company-select', {
+            create: true,
+            sortField: {
+                field: "text",
+                direction: "asc"
+            }
+        });
+
+         new TomSelect('#contact-select', {
+            create: true,
+            sortField: { field: "text", direction: "asc" }
+        });
+    </script>
 }

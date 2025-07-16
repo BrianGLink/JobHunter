@@ -12,11 +12,9 @@ public partial class Job
     [Key]
     public Guid JobID { get; set; }
 
-    [Required]
     [StringLength(50)]
     public string PositionTitle { get; set; }
 
-    [Required]
     [Column(TypeName = "ntext")]
     public string Requirements { get; set; }
 
@@ -26,9 +24,9 @@ public partial class Job
 
     public Guid? CompanyID { get; set; }
 
-    public Company Company { get; set; }
-
-    public Contact Contact { get; set; }
+    public Company Company { get; set; }    
 
     public Guid? ContactID { get; set; }
+
+    public Contact Contact { get; set; }
 }

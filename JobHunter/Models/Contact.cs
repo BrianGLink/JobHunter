@@ -17,10 +17,10 @@ public partial class Contact
     public string Name { get; set; }
 
     [StringLength(50)]
-    public string Email { get; set; }
+    public string? Email { get; set; }
 
     public Guid? CompanyID { get; set; }
 
     [Column(TypeName = "ntext")]
-    public string Notes { get; set; }
+    public string? Notes { get; set; }
 }

@@ -12,7 +12,6 @@ public partial class Event
     [Key]
     public Guid EventID { get; set; }
 
-    [Required]
     [StringLength(50)]
     public string Description { get; set; }
 

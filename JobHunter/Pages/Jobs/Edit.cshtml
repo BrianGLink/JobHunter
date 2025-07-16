@@ -17,53 +17,66 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Job.JobID" />
+
             <div class="form-group">
                 <span class="text-danger">*</span>
                 <label asp-for="Job.PositionTitle" class="control-label"></label>
                 <input asp-for="Job.PositionTitle" class="form-control" />
                 <span asp-validation-for="Job.PositionTitle" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <span class="text-danger">*</span>
                 <label asp-for="Job.Requirements" class="control-label"></label>
                 <textarea asp-for="Job.Requirements" class="form-control" rows="6"></textarea>
                 <span asp-validation-for="Job.Requirements" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="Job.PostedDate" class="control-label"></label>
                 <input asp-for="Job.PostedDate" class="form-control" />
                 <span asp-validation-for="Job.PostedDate" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="Job.AppliedDate" class="control-label"></label>
                 <input asp-for="Job.AppliedDate" class="form-control" />
                 <span asp-validation-for="Job.AppliedDate" class="text-danger"></span>
             </div>
-            <!-- Company dropdown -->
+
+            <!-- Select existing company -->
             <div class="form-group">
-                <label>Company (select or type new):</label>
-                <select id="company-select" name="NewCompanyName" class="form-select">
-                    @foreach (var item in Model.CompanyOptions)
-                    {
-                        <option value="@item.Text">@item.Text</option>
-                    }
+                <label asp-for="Job.CompanyID">Select Existing Company:</label>
+                <select asp-for="Job.CompanyID" asp-items="Model.CompanyOptions" class="form-select">
+                    <option value="">-- Select a company --</option>
                 </select>
             </div>
 
-            <!-- Contact dropdown -->
+            <!-- Or add a new company -->
             <div class="form-group">
-                <label>Contact (select or type new):</label>
-                <select id="contact-select" name="NewContactName" class="form-select">
-                    @foreach (var item in Model.ContactOptions)
-                    {
-                        <option value="@item.Text">@item.Text</option>
-                    }
+                <label for="NewCompanyName">Or Add New Company:</label>
+                <input asp-for="NewCompanyName" class="form-control" />
+            </div>
+
+            <!-- Select existing contact -->
+            <div class="form-group">
+                <label asp-for="Job.ContactID">Select Existing Contact:</label>
+                <select asp-for="Job.ContactID" asp-items="Model.ContactOptions" class="form-select">
+                    <option value="">-- Select a contact --</option>
                 </select>
             </div>
+
+            <!-- Or add a new contact -->
+            <div class="form-group">
+                <label for="NewContactName">Or Add New Contact:</label>
+                <input asp-for="NewContactName" class="form-control" />
+            </div>
+
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
+
     </div>
 </div>
 

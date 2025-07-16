@@ -4,6 +4,7 @@
    "ContextNamespace": null,
    "FilterSchemas": false,
    "IncludeConnectionString": false,
+   "MinimumProductVersion": "2.6.0",
    "ModelNamespace": null,
    "OutputContextPath": null,
    "OutputPath": "Models",
@@ -31,8 +32,12 @@
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[vw_JobListings]",
-         "ObjectType": 3
+         "Name": "[dbo].[spGetContacts]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[spGetEvents]",
+         "ObjectType": 1
       }
    ],
    "UiHint": null,
